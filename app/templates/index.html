@@ -3,16 +3,17 @@
 {% endblock %}
 {% block content %}
     <div class="fullscreen-bg">
-        <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+        <video loop muted autoplay poster="../static/img/videoframe.jpg" class="fullscreen-bg__video">
             <source src="{{ url_for('static', filename='gear-wallpaper.webm') }}" type="video/webm">
         </video>
     </div>
-    <div class="jumbotron">
-        <div class="container">
-            <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel-body">
-                Index!
-                </div>
+    <div class="invitation-container">
+        <div class="invitation">
+            <img src="../static/img/invitation.png">
+            <div class="invitation-button">
+                <img class="bottom" src="../static/img/button_s.png"/>
+                <img class="top" src="../static/img/button_h.png"/>
+                <a class="invitation-font">¿Asistirás?</a>
             </div>
         </div>
     </div>

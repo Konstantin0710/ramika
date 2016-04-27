@@ -7,9 +7,9 @@ from app.models import Invitation
 from app.sec_views import MyUserDBModelView
 
 
-@expose("/")
-def invitation(self):
-    return self.render_template('invitation.html', param1="Hi")
+@expose("/map/")
+def map(self):
+    return self.render_template('map.html', param1="Hi")
 
 
 class InvitationView(ModelView):
