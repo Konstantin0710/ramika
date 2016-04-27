@@ -1,1 +1,1 @@
-Flask-AppBuilder==1.6.1
+Flask-AppBuilder==1.6.0
