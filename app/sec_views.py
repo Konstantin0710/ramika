@@ -13,7 +13,7 @@ class MyUserDBModelView(UserDBModelView):
 
     show_fieldsets = [
         (lazy_gettext('User info'),
-         {'fields': ['username', 'active', 'roles', 'login_count', 'invitation']}),
+         {'fields': ['username', 'active', 'roles', 'login_count', 'invitation', 'assist', 'paid']}),
         (lazy_gettext('Personal Info'),
          {'fields': ['first_name', 'last_name', 'email'], 'expanded': True}),
         (lazy_gettext('Audit Info'),
@@ -23,14 +23,15 @@ class MyUserDBModelView(UserDBModelView):
 
     user_show_fieldsets = [
         (lazy_gettext('User info'),
-         {'fields': ['username', 'active', 'roles', 'login_count', 'invitation']}),
+         {'fields': ['username', 'active', 'roles', 'login_count', 'invitation', 'assist', 'paid']}),
         (lazy_gettext('Personal Info'),
          {'fields': ['first_name', 'last_name', 'email'], 'expanded': True}),
     ]
 
-    add_columns = ['first_name', 'last_name', 'username', 'active', 'email', 'roles', 'invitation', 'password', 'conf_password']
-    list_columns = ['first_name', 'last_name', 'username', 'email', 'active', 'roles']
-    edit_columns = ['first_name', 'last_name', 'username', 'active', 'email', 'roles', 'invitation']
+    add_columns = ['first_name', 'last_name', 'username', 'active', 'email', 'roles', 'invitation', 'password',
+                   'conf_password', 'assist', 'paid']
+    list_columns = ['first_name', 'last_name', 'username', 'email', 'active', 'roles', 'assist', 'paid']
+    edit_columns = ['first_name', 'last_name', 'username', 'active', 'email', 'roles', 'invitation', 'assist', 'paid']
 
 
 class MyIndexView(IndexView):

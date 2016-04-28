@@ -1,0 +1,142 @@
+{% extends "appbuilder/base.html" %}
+{% block navbar %}
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        // When the window has finished loading create our google map below
+        google.maps.event.addDomListener(window, 'load', init);
+
+        function init() {
+            // Basic options for a simple Google Map
+            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+            var mapOptions = {
+                // How zoomed in you want the map to start at (always required)
+                zoom: 16,
+
+                // The latitude and longitude to center the map (always required)
+                center: new google.maps.LatLng(-32.926435, -60.741671), // New York
+
+                // How you would like to style the map.
+                // This is where you would paste any style found on Snazzy Maps.
+                styles: [{
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{"color": "#444444"}]
+                }, {
+                    "featureType": "administrative.country",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [{"color": "#f2f2f2"}]
+                }, {
+                    "featureType": "landscape",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"color": "#ecddbb"}]
+                }, {
+                    "featureType": "landscape.natural.terrain",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"color": "#e1d0ad"}]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [{"saturation": -100}, {"lightness": 45}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"color": "#9f8e7a"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{"color": "#FFFFFF"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{"color": "#7d7971"}]
+                }, {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.icon",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "road.local",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{"color": "#d5c2a3"}]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [{"color": "#46bcec"}, {"visibility": "on"}]
+                }, {
+                    "featureType": "water",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"color": "#d3cdc1"}]
+                }, {
+                    "featureType": "water",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{"color": "#838383"}]
+                }, {
+                    "featureType": "water",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{"visibility": "off"}]
+                }]
+            };
+
+            // Get the HTML DOM element that will contain your map
+            // We are using a div with id="map" seen below in the <body>
+            var mapElement = document.getElementById('map');
+
+            // Create the Google Map using our element and options defined above
+            var map = new google.maps.Map(mapElement, mapOptions);
+
+            // Let's also add a marker while we're at it
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(-32.926435, -60.741671),
+                map: map,
+                title: 'Villa Ana'
+            });
+        }
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="fullscreen-bg">
+        <video loop muted autoplay poster="{{ url_for('static', filename='img/videoframe.jpg') }}"
+               class="fullscreen-bg__video">
+            <source src="{{ url_for('static', filename='gear-wallpaper.webm') }}" type="video/webm">
+        </video>
+    </div>
+    <div class="invitation-container">
+        <div class="invitation">
+            <img src="{{ url_for('static', filename='img/map.png') }}">
+            <p class="question">Rogamos confirmar asistencia (valor de tarjeta de $400):</p>
+            <div class="button assist-button {{ assist_classes }}">
+                <img class="bottom" src="{{ url_for('static', filename='img/button_s.png') }}"/>
+                <img class="top" src="{{ url_for('static', filename='img/button_h.png') }}"/>
+                <a class="assist-font">Asistiré</a>
+            </div>
+            <div class="button not-assist-button {{ not_assist_classes }}">
+                <img class="bottom" src="{{ url_for('static', filename='img/button_s.png') }}"/>
+                <img class="top" src="{{ url_for('static', filename='img/button_h.png') }}"/>
+                <a class="not-assist-font">No Asistiré</a>
+            </div>
+            <div id="map"></div>
+            <img class="rotule" src="{{ url_for('static', filename='img/rotule.png') }}"/>
+            <p class="location">Le esperamos el dia Viernes 13 de Mayo a las 14:30 hs,
+                en Villa Ana, Azcuenaga 8391.</p>
+            <img class="compass" src="{{ url_for('static', filename='img/compass.png') }}"/>
+
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

@@ -16,4 +16,40 @@ $(document).ready(function () {
             $(".invitation-button img.top").animate({opacity: 0}, 200);
         }
     );
+
+    $(".assist-button a").hover(
+        function () {
+            $(".assist-button img.top").animate({opacity: 100}, 200);
+        },
+        function () {
+            $(".assist-button img.top").animate({opacity: 0}, 200);
+        }
+    );
+
+    $(".not-assist-button a").hover(
+        function () {
+            $(".not-assist-button img.top").animate({opacity: 100}, 200);
+        },
+        function () {
+            $(".not-assist-button img.top").animate({opacity: 0}, 200);
+        }
+    );
+
+    $(".assist-button a").click(
+        function () {
+            $.get("/mapview/assist/", function (data) {
+                $(".selected-button").removeClass("selected-button");
+                $(".assist-button").addClass("selected-button");
+            });
+        }
+    );
+
+    $(".not-assist-button a").click(
+        function () {
+            $.get("/mapview/not-assist/", function (data) {
+                $(".selected-button").removeClass("selected-button");
+                $(".not-assist-button").addClass("selected-button");
+            });
+        }
+    );
 });

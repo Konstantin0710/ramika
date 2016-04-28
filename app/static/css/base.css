@@ -82,25 +82,43 @@
 .invitation {
     margin: 0 auto;
     width: 800px;
+    position: relative;
+}
+
+.button {
+    position: absolute;
 }
 
 .invitation-button {
-    position: absolute;
     top: 897px;
-    left: 693px;
+    left: 600px;
 }
 
-.invitation-button input:active, .ramika-button input:focus {
+.assist-button {
+    top: 220px;
+    left: 230px;
+}
+
+.not-assist-button {
+    top: 220px;
+    left: 440px;
+}
+
+.button input:active, .ramika-button input:focus {
     outline: none;
 }
 
-.invitation-button img {
+.button img {
     position: absolute;
     left: 0;
 }
 
-.invitation-button img.top {
+.button img.top {
     opacity: 0;
+}
+
+.selected-button img{
+    opacity: 100 !important;
 }
 
 .invitation-font {
@@ -112,12 +130,79 @@
     left: 32px;
 }
 
-.invitation-font:hover, .invitation-font:focus {
+.assist-font {
+    font-family: fontleroybrownregular;
+    color: black;
+    font-size: 27px;
+    position: absolute;
+    top: 19px;
+    left: 47px;
+}
+
+.not-assist-font {
+    font-family: fontleroybrownregular;
+    color: black;
+    font-size: 27px;
+    position: absolute;
+    top: 19px;
+    left: 28px;
+    width: 90px;
+}
+
+.invitation-font:hover, .invitation-font:focus, .assist-font:hover, .assist-font:focus, .not-assist-font:hover, .not-assist-font:focus {
     text-decoration: none;
     outline: none;
     background: none;
     border: none;
     color: black;
+}
+
+.question {
+    position: absolute;
+    text-align: center;
+    width: 700px;
+    font-family: fontleroybrownregular;
+    color: black;
+    font-size: 33px;
+    top: 160px;
+    left: 70px;
+}
+
+.location {
+    position: absolute;
+    text-align: center;
+    width: 700px;
+    font-family: fontleroybrownregular;
+    color: black;
+    font-size: 27px;
+    top: 322px;
+    left: 260px;
+    width: 310px;
+    line-height: 28px;
+    z-index: 150;
+}
+
+.rotule {
+    position: absolute;
+    top: 320px;
+    left: 173px;
+    z-index: 100;
+}
+
+.compass {
+    position: absolute;
+    top: 760px;
+    left: 120px;
+    z-index: 100;
+}
+
+#map {
+    position: absolute;
+    width: 600px;
+    height: 544px;
+    top: 356px;
+    left: 102px;
+    z-index: 50;
 }
 
 @media (min-aspect-ratio: 16/9) {
