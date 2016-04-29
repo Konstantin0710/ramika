@@ -117,7 +117,7 @@
     opacity: 0;
 }
 
-.selected-button img{
+.selected-button img {
     opacity: 100 !important;
 }
 
@@ -157,6 +157,16 @@
     background: none;
     border: none;
     color: black;
+}
+
+.thanks {
+    position: absolute;
+    top: 275px;
+    left: 370px;
+    font-family: fontleroybrownregular;
+    color: black;
+    font-size: 33px;
+    opacity: 0;
 }
 
 .question {

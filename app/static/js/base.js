@@ -38,8 +38,10 @@ $(document).ready(function () {
     $(".assist-button a").click(
         function () {
             $.get("/mapview/assist/", function (data) {
+                $(".thanks").animate({opacity: 0}, 500);
                 $(".selected-button").removeClass("selected-button");
                 $(".assist-button").addClass("selected-button");
+                $(".thanks").animate({opacity: 100}, 1500);
             });
         }
     );
@@ -47,8 +49,10 @@ $(document).ready(function () {
     $(".not-assist-button a").click(
         function () {
             $.get("/mapview/not-assist/", function (data) {
+                $(".thanks").animate({opacity: 0}, 500);
                 $(".selected-button").removeClass("selected-button");
                 $(".not-assist-button").addClass("selected-button");
+                $(".thanks").animate({opacity: 100}, 1500);
             });
         }
     );
