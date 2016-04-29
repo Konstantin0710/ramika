@@ -1,5 +1,5 @@
 from flask import render_template
-from flask.ext.appbuilder import expose, ModelView, BaseView
+from flask.ext.appbuilder import expose, ModelView, BaseView, has_access, permission_name
 from flask.ext.appbuilder.models.sqla.interface import SQLAInterface
 
 from app import appbuilder, db
@@ -37,19 +37,25 @@ appbuilder.add_view(InvitationView(), "Invitations")
 class MapView(BaseView):
     default_view = 'map'
 
+    @has_access
     @expose('/map/')
+    @permission_name('LoginRequired')
     def map(self):
         assist_classes = 'selected-button' if g.user.assist is True else ''
         not_assist_classes = 'selected-button' if g.user.assist is False else ''
         return self.render_template('map.html', assist_classes=assist_classes, not_assist_classes=not_assist_classes)
 
+    @has_access
     @expose('/assist/')
+    @permission_name('LoginRequired')
     def assist(self):
         g.user.assist = True
         self.appbuilder.get_session().commit()
         return 'Success'
 
+    @has_access
     @expose('/not-assist/')
+    @permission_name('LoginRequired')
     def not_assist(self):
         g.user.assist = False
         self.appbuilder.get_session().commit()

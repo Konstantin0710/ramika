@@ -137,6 +137,7 @@
     position: absolute;
     top: 19px;
     left: 47px;
+    cursor: pointer;
 }
 
 .not-assist-font {
@@ -147,6 +148,11 @@
     top: 19px;
     left: 28px;
     width: 90px;
+    cursor: pointer;
+}
+
+.alert {
+    display: none !important;
 }
 
 .invitation-font:hover, .invitation-font:focus, .assist-font:hover, .assist-font:focus, .not-assist-font:hover, .not-assist-font:focus {

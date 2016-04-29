@@ -1,4 +1,5 @@
 from flask.ext.appbuilder import IndexView
+from flask.ext.appbuilder import expose, has_access, permission_name
 from flask_appbuilder.security.views import UserDBModelView, AuthDBView
 from flask_babelpkg import lazy_gettext
 
@@ -36,6 +37,14 @@ class MyUserDBModelView(UserDBModelView):
 
 class MyIndexView(IndexView):
     index_template = 'index.html'
+
+    @has_access
+    @expose('/')
+    @permission_name('LoginRequired')
+    def index(self):
+        self.update_redirect()
+        return self.render_template(self.index_template,
+                                    appbuilder=self.appbuilder)
 
 
 class MyAuthDBView(AuthDBView):
