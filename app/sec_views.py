@@ -40,7 +40,6 @@ class MyIndexView(IndexView):
 
     @has_access
     @expose('/')
-    @permission_name('LoginRequired')
     def index(self):
         self.update_redirect()
         return self.render_template(self.index_template,
