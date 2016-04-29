@@ -2,6 +2,11 @@
 {% block navbar %}
 {% endblock %}
 {% block content %}
+    <style>
+        .alert {
+            display: none !important;
+        }
+    </style>
     <div class="fullscreen-bg" xmlns="http://www.w3.org/1999/html">
         <video loop muted autoplay poster="../static/img/videoframe.jpg" class="fullscreen-bg__video">
             <source src="{{ url_for('static', filename='gear-wallpaper.webm') }}" type="video/webm">
@@ -43,8 +48,8 @@
                                 <br>
                                 <div>
                                     <div class="ramika-button">
-                                        <img class="bottom"  src="../static/img/button_s.png"/>
-                                        <img class="top"  src="../static/img/button_h.png"/>
+                                        <img class="bottom" src="../static/img/button_s.png"/>
+                                        <img class="top" src="../static/img/button_h.png"/>
                                         <input class="login-font" type="submit"
                                                value="{{ _('Ingresar') }}">
                                     </div>
